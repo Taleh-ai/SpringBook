@@ -30,4 +30,9 @@ private final BookRepo bookRepo;
         return optionalBook.orElse(null);
     }
 
+    public void deeleteBookId(Long id) throws Exception {
+         bookRepo.findById(id).orElseThrow(Exception::new);
+        bookRepo.delete(bookRepo.findById(id).orElseThrow(Exception::new));
+    }
+
 }

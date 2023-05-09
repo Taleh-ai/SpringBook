@@ -1,5 +1,6 @@
 package com.example.springbook.controller;
 
+import com.example.springbook.dto.BookDTO;
 import com.example.springbook.entity.BookEntity;
 import com.example.springbook.service.BookService;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,10 @@ public class BookController {
     @GetMapping("/{id}")
     public BookEntity getBook(@PathVariable("id") Long id){
         return bookService.findBookById(id);
+    }
+    @DeleteMapping("delete/{id}" )
+    public void deleteById(@PathVariable("id") Long id ) throws Exception {
+        bookService.deeleteBookId(id);
     }
 
 }
